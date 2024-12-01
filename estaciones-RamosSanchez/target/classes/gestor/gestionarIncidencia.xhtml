@@ -1,0 +1,86 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:param name="estilo4" value="current" />
+
+	<ui:define name="title">
+        Gestionar incidencia
+    </ui:define>
+
+	<ui:define name="content">
+		<div class="row">
+			<h:form>
+				<h:panelGrid columns="2" style="width: 50%;">
+					<h:panelGroup>
+						<h:outputText value="Incidencia"
+							style="font-size: larger; font-weight: bold;" />
+					</h:panelGroup>
+
+					<h:panelGrid columns="2">
+						<h:outputLabel value="ID:" />
+						<h:outputText
+							value="#{operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada.id}" />
+
+						<h:outputLabel value="IDBicicleta:" />
+						<h:outputText
+							value="#{operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada.idBici}" />
+
+						<h:outputLabel value="Estado :" />
+						<h:outputText
+							id="TextEstado"
+							value="#{operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada.estado}" />
+
+						<h:outputLabel value="Fecha de creación :" />
+						<h:outputText
+							id="TextFechaCreacion"
+							value="#{operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada.fechaCreacion}" />
+					</h:panelGrid>
+				</h:panelGrid>
+
+				<h:panelGrid columns="1" style="width: 50%;">
+					<h:panelGroup>
+						<h:outputText value="Gestionar"
+							style="font-size: larger; font-weight: bold;" />
+					</h:panelGroup>
+				</h:panelGrid>
+				<h3 class="first">#{text['añadeDescripcion']}</h3>
+				<p:textEditor widgetVar="editor"
+					value="#{operacionesIncidenciaAbiertaWeb.descripcion}"
+					height="300px" placeholder="#{text['placeholder']}" required="false"
+					secure="false" style="width: 250%">
+					<f:facet name="toolbar">
+						<span class="ql-formats">
+							<button class="ql-bold"></button>
+							<button class="ql-italic"></button>
+							<button class="ql-underline"></button>
+							<button class="ql-strike"></button>
+						</span>
+					</f:facet>
+				</p:textEditor>
+				<h:panelGrid columns="4" style="width: 50%;">
+					<p:commandButton value="Cancelar"
+						action="#{operacionesIncidenciaAbiertaWeb.cambiarACancelada()}"
+						style="width: 160px;"
+						update="messages TextFechaCreacion TextEstado"/>
+					<p:commandButton value="Asignar"
+						action="#{operacionesIncidenciaAbiertaWeb.cambiarAAsignada()}"
+						style="width: 160px;"
+						update="messages TextFechaCreacion TextEstado"/>
+					<p:commandButton value="Resuelta"
+						action="#{operacionesIncidenciaAbiertaWeb.cambiarAResuelta()}"
+						style="width: 160px;"
+						update="messages TextFechaCreacion TextEstado"/>
+					<p:commandButton value="No resuelta"
+						action="#{operacionesIncidenciaAbiertaWeb.cambiarANoResuelta()}"
+						style="width: 160px;"
+						update="messages TextFechaCreacion TextEstado"/>
+				</h:panelGrid>
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

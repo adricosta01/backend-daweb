@@ -1,0 +1,24 @@
+
+{
+    "categorias": [
+        "http://dbpedia.org/ontology/Mountain",
+        "http://schema.org/Place",
+        "http://schema.org/Mountain",
+        "http://dbpedia.org/ontology/NaturalPlace",
+        "http://dbpedia.org/ontology/Location",
+        "http://www.wikidata.org/entity/Q8502",
+        "http://www.w3.org/2002/07/owl#Thing",
+        "http://dbpedia.org/ontology/Place"
+    ],
+    "id": "Cabezo_Negro_de_Zeneta",
+    "imagen": null,
+    "nombre": "Cabezo Negro de Zeneta",
+    "resumen_articulo": "El Cabezo Negro de Zeneta es un cono volcánico de gran importancia geológica de la Región de Murcia, en el municipio de Murcia, situado cerca del límite con la Comunidad Valenciana. Cabezo, la primera palabra de su nombre alude al tipo de cerro que es.",
+    "url_articulo_wikipedia": "https://es.dbpedia.org/data/Cabezo_Negro_de_Zeneta.json",
+    "urls_complementarios": [
+        "http://www.springerlink.com/content/h0np55w17v236313/",
+        "https://web.archive.org/web/20160305022858/http:/www.igme.es/internet/salaprensa/BancoImagenes/foto.asp%3Fid=419",
+        "http://www.educarm.es/proyectocico/pcico/unidad3-rym/ayuda/ayuda6.htm",
+        "http://webdeptos.uma.es/biolveg/03Rev/00HRev/22_Egea.pdf"
+    ]
+}

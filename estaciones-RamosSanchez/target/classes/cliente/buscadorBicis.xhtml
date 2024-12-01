@@ -1,0 +1,102 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:param name="estilo3" value="current" />
+
+	<ui:define name="title">
+        #{text['buscadorBici']}
+    </ui:define>
+
+	<ui:define name="content">
+		<div class="row">
+
+			<h:form id="form">
+
+				<p:panelGrid columns="2" styleClass="label,value"
+					style="width: 30%; text-align: center; margin-bottom: 10px;">
+					<p:panelGrid columns="1">
+						<h:outputLabel value="#{text['longitud']}:"
+							style="vertical-align: middle; display: inline-block;" />
+					</p:panelGrid>
+					<p:inputText value="#{operacionesBicicletaWeb.longitud}" />
+
+					<p:panelGrid columns="1">
+						<h:outputLabel value="#{text['latitud']}:"
+							style="vertical-align: middle; display: inline-block;" />
+					</p:panelGrid>
+					<p:inputText value="#{operacionesBicicletaWeb.latitud}" />
+				</p:panelGrid>
+
+				<p:panelGrid columns="1">
+					<p:commandButton value="#{text['buscar']}"
+						action="#{operacionesBicicletaWeb.buscarBicicletasCercanas()}"
+						style="width: 160px;" update="bicicletaTable messages" process="@form" />
+				</p:panelGrid>
+
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+				<p:dataTable var="bicicleta"
+					value="#{operacionesBicicletaWeb.bdtos}" rowKey="#{bicicleta.id}"
+					paginator="true" rows="10"
+					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15" selectionMode="single"
+					selection="#{operacionesBicicletaWeb.bicicletaSeleccionada}"
+					id="bicicletaTable">
+					<p:ajax event="rowSelect"
+						listener="#{operacionesBicicletaWeb.onRowSelect}"
+						update=":form:bicicletaDetail"
+						oncomplete="PF('bicicletaDialog').show()" />
+					<p:column headerText="ID" sortBy="#{bicicleta.id}"
+						filterBy="#{bicicleta.id}">
+						<h:outputText value="#{bicicleta.id}" />
+					</p:column>
+					<p:column headerText="#{text['modelo']}" sortBy="#{bicicleta.modelo}"
+						filterBy="#{bicicleta.modelo}">
+						<span class="flag flag-#{bicicleta.modelo}"
+							style="width: 30px; height: 20px" />
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{bicicleta.modelo}" />
+					</p:column>
+					<p:column headerText="#{text['estacion']}" sortBy="#{bicicleta.estacion.nombre}"
+						filterBy="#{bicicleta.estacion.nombre}">
+						<h:outputText value="#{bicicleta.estacion.nombre}" />
+					</p:column>
+				</p:dataTable>
+
+				<p:dialog header="Bicicleta seleccionada"
+					widgetVar="bicicletaDialog" modal="true" showEffect="fade"
+					hideEffect="fade" resizable="false">
+					<p:outputPanel id="bicicletaDetail" style="text-align:center;">
+						<p:panelGrid columns="2"
+							rendered="#{not empty operacionesBicicletaWeb.bicicletaSeleccionada}"
+							columnClasses="label,value">
+
+							<h:outputText value="ID :" />
+							<h:outputText
+								value="#{operacionesBicicletaWeb.bicicletaSeleccionada.id}" />
+
+							<h:outputText value="#{text['modelo']} :" />
+							<h:outputText
+								value="#{operacionesBicicletaWeb.bicicletaSeleccionada.modelo}" />
+
+							<h:outputText value="#{text['estacion']} :" />
+							<h:outputText
+								value="#{operacionesBicicletaWeb.bicicletaSeleccionada.estacion.nombre}" />
+
+							<p:panelGrid columns="1">
+								<p:commandButton value="#{text['crearIncidencia']}"
+									onclick="#{operacionesBicicletaWeb.getBicicletaParaIncidencia()}"
+									action="#{operacionesIncidenciaWeb.goToCrearIncidencia()}"
+									style="width: 160px;" update="bicicletaTable" process="@form" />
+							</p:panelGrid>
+
+						</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

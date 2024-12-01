@@ -1,0 +1,28 @@
+
+{
+    "categorias": [
+        "http://dbpedia.org/ontology/GovernmentalAdministrativeRegion",
+        "http://dbpedia.org/ontology/Region",
+        "http://dbpedia.org/ontology/PopulatedPlace",
+        "http://dbpedia.org/ontology/Location",
+        "http://dbpedia.org/ontology/Place",
+        "http://schema.org/Place",
+        "http://www.wikidata.org/entity/Q3455524",
+        "http://schema.org/AdministrativeArea",
+        "http://www.w3.org/2002/07/owl#Thing",
+        "http://dbpedia.org/ontology/AdministrativeRegion",
+        "http://dbpedia.org/ontology/Municipality"
+    ],
+    "id": "Beniel",
+    "imagen": "Ermite El Sagrado Corazón de Jesús.JPG",
+    "nombre": "Beniel",
+    "resumen_articulo": "Beniel es un municipio español de la Región de Murcia, situado en la comarca de la Huerta de Murcia. Cuenta con una población total de 11.318 habitantes (INE 2019)​ y una extensión de 10,06 km².",
+    "url_articulo_wikipedia": "https://es.dbpedia.org/data/Beniel.json",
+    "urls_complementarios": [
+        "https://www.facebook.com/ayuntamientodebeniel",
+        "http://beniel.es",
+        "https://web.archive.org/web/20101206053631/http:/www.supercopabeniel.es/",
+        "https://twitter.com/aytobeniel",
+        "http://www.beniel.es/"
+    ]
+}

@@ -1,0 +1,90 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:param name="estilo3" value="current" />
+
+	<ui:define name="title">
+        Incidencias abiertas
+    </ui:define>
+
+	<ui:define name="content">
+		<div class="row">
+			<h:form id="form">
+				<p:panelGrid columns="1">
+					<p:commandButton value="#{text['buscar']}"
+						action="#{operacionesIncidenciaAbiertaWeb.recuperarIncidenciasAbiertas()}"
+						style="width: 160px;" update="incidenciaTable" process="@form" />
+				</p:panelGrid>
+
+				<p:messages id="messages" showDetail="true" autoUpdate="true"
+					closable="true" />
+
+				<p:dataTable var="incidencia"
+					value="#{operacionesIncidenciaAbiertaWeb.idtos}"
+					rowKey="#{incidencia.id}" paginator="true" rows="10"
+					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15" selectionMode="single"
+					selection="#{operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada}"
+					id="incidenciaTable">
+					<p:ajax event="rowSelect"
+						listener="#{operacionesIncidenciaAbiertaWeb.onRowSelect}"
+						update=":form:incidenciaDetail"
+						oncomplete="PF('incidenciaDialog').show()" />
+					<p:column headerText="IDIncidencia" sortBy="#{incidencia.id}"
+						filterBy="#{incidencia.id}">
+						<h:outputText value="#{incidencia.id}" />
+					</p:column>
+					<p:column headerText="IDBicicleta" sortBy="#{incidencia.idBici}"
+						filterBy="#{incidencia.idBici}">
+						<h:outputText value="#{incidencia.idBici}" />
+					</p:column>
+					<p:column headerText="Estado" sortBy="#{incidencia.estado}"
+						filterBy="#{incidencia.estado}">
+						<h:outputText value="#{incidencia.estado}" />
+					</p:column>
+					<p:column headerText="Fecha de creación"
+						sortBy="#{incidencia.fechaCreacion}"
+						filterBy="#{incidencia.fechaCreacion}">
+						<h:outputText value="#{incidencia.fechaCreacion}" />
+					</p:column>
+				</p:dataTable>
+
+				<p:dialog header="Incidencia seleccionada"
+					widgetVar="incidenciaDialog" modal="true" showEffect="fade"
+					hideEffect="fade" resizable="false">
+					<p:outputPanel id="incidenciaDetail" style="text-align:center;">
+						<p:panelGrid columns="2"
+							rendered="#{not empty operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada}"
+							columnClasses="label,value">
+
+							<h:outputText value="ID :" />
+							<h:outputText
+								value="#{operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada.id}" />
+
+							<h:outputText value="IDBicicleta :" />
+							<h:outputText
+								value="#{operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada.idBici}" />
+							<h:outputText value="Estado :" />
+							<h:outputText
+								value="#{operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada.estado}" />
+							<h:outputText value="Fecha de creación :" />
+							<h:outputText
+								value="#{operacionesIncidenciaAbiertaWeb.incidenciaSeleccionada.fechaCreacion}" />
+
+							<p:panelGrid columns="1">
+								<p:commandButton value="Modificar incidencia"
+									action="#{operacionesIncidenciaWeb.goToGestionarIncidencia()}"
+									style="width: 160px;" update="incidenciaTable" process="@form" />
+							</p:panelGrid>
+
+						</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

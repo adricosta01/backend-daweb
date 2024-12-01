@@ -1,0 +1,24 @@
+
+{
+    "categorias": [
+        "http://dbpedia.org/ontology/Municipality",
+        "http://dbpedia.org/ontology/Location",
+        "http://dbpedia.org/ontology/Place",
+        "http://schema.org/Place",
+        "http://dbpedia.org/ontology/GovernmentalAdministrativeRegion",
+        "http://www.wikidata.org/entity/Q3455524",
+        "http://www.w3.org/2002/07/owl#Thing",
+        "http://dbpedia.org/ontology/Region",
+        "http://dbpedia.org/ontology/PopulatedPlace",
+        "http://schema.org/AdministrativeArea",
+        "http://dbpedia.org/ontology/AdministrativeRegion"
+    ],
+    "id": "El_Raal",
+    "imagen": null,
+    "nombre": "El Raal",
+    "resumen_articulo": "El Raal es una pedanía perteneciente al municipio de Murcia, en la Región de Murcia (España). Cuenta con una población de 6334 habitantes (INE 2019) y una extensión de 8,178 km². Se encuentra a unos 10,8 km del centro de Murcia y se sitúa a una altura de 31 metros sobre el nivel del mar.​",
+    "url_articulo_wikipedia": "https://es.dbpedia.org/data/El_Raal.json",
+    "urls_complementarios": [
+        "https://web.archive.org/web/20140209110308/http:/elraal.net/"
+    ]
+}

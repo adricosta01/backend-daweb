@@ -1,0 +1,27 @@
+
+{
+    "categorias": [
+        "http://schema.org/AdministrativeArea",
+        "http://dbpedia.org/ontology/Municipality",
+        "http://dbpedia.org/ontology/Place",
+        "http://dbpedia.org/ontology/GovernmentalAdministrativeRegion",
+        "http://dbpedia.org/ontology/Region",
+        "http://dbpedia.org/ontology/PopulatedPlace",
+        "http://schema.org/Place",
+        "http://dbpedia.org/ontology/Location",
+        "http://www.wikidata.org/entity/Q3455524",
+        "http://www.w3.org/2002/07/owl#Thing",
+        "http://dbpedia.org/ontology/AdministrativeRegion"
+    ],
+    "id": "Santa_Cruz_(Murcia)",
+    "imagen": null,
+    "nombre": "Santa Cruz (Murcia)",
+    "resumen_articulo": "Santa Cruz es una pedanía perteneciente al municipio de Murcia, en la Región de Murcia (España). Cuenta con una población de 2.516 habitantes (INE, 2019) y una extensión de 4,239 km². Se encuentra a 8 km del centro de Murcia.",
+    "url_articulo_wikipedia": "https://es.dbpedia.org/data/Santa_Cruz_(Murcia).json",
+    "urls_complementarios": [
+        "https://commons.m.wikimedia.org/wiki/File:Escudo_de_Santa_Cruz_(Murcia).svg",
+        "http://maps.google.es/maps%3Ff=q&hl=es&geocode=&q=santa+cruz,+murcia&ie=UTF8&ll=38.016299,-1.05104&spn=0.007962,0.020084&t=h&z=16&om=1",
+        "https://web.archive.org/web/20070928072203/http:/www.ayto-murcia.es/pedanias/SantaCruz_historia_.asp",
+        "http://meteohuertamur.tk"
+    ]
+}

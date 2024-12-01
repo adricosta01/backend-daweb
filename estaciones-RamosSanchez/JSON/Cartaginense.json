@@ -1,0 +1,22 @@
+
+{
+    "categorias": [
+    ],
+    "id": "Cartaginense",
+    "imagen": null,
+    "nombre": "Cartaginense",
+    "resumen_articulo": "La Carthaginense (en latín Carthaginensis o Carthaginiensis) se refiere tanto a una circunscripción territorial romana (primero como conventus iuridicus y posteriormente con la categoría de provincia romana) como a una provincia eclesiástica, ambas con capital en Carthago Nova (Cartagena).",
+    "url_articulo_wikipedia": "https://es.dbpedia.org/data/Cartaginense.json",
+    "urls_complementarios": [
+        "http://dialnet.unirioja.es/servlet/fichero_articulo%3Fcodigo=747599&orden=0",
+        "http://www.unc.edu/depts/cl_atlas/images/map3.jpg",
+        "https://web.archive.org/web/20091218163945/http:/notitiadignitatum.iespana.es/Notitia_Dignitatum_espanol.pdf",
+        "https://web.archive.org/web/20120121065035/http:/mail.nysoclib.org/Barrington_Atlas/BATL027_.pdf",
+        "http://rua.ua.es/dspace/bitstream/10045/5884/1/Lucentum_17-18_11.pdf",
+        "http://rua.ua.es/dspace/bitstream/10045/9053/1/Lucentum_Anejo_1985_17.pdf",
+        "https://www.condadodecastilla.es/cultura-sociedad/fuentes-historicas/geografia-de-ptolomeo/",
+        "https://web.archive.org/web/20110727134814/http:/mail.nysoclib.org/Barrington_Atlas/B_ATLAS.PDF",
+        "http://revistas.um.es/ayc/issue/view/4851",
+        "http://www.dracones.ro/imprimare.php%3Foperatie=subiect&locatie=izvoare_latine&fisier=Rufius_Festus_Sextus_-_Rerum_gestarum_populi_Romani"
+    ]
+}
