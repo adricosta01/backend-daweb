@@ -8,7 +8,7 @@ namespace Usuarios.Modelo{
     public class Usuario{
 
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.String)]
         public string Id {get; set;}
         public string nombreUsuario {get; set;}
         public string nombreCompleto {get; set;}
@@ -16,7 +16,8 @@ namespace Usuarios.Modelo{
         public string rol {get; set;}
         public string OAuth2Id {get; set;}
 
-        public Usuario(string nombreUsuario, string nombreCompleto, string password, string rol){
+        public Usuario(string Id, string nombreUsuario, string nombreCompleto, string password, string rol){
+            this.Id = Id;
             this.nombreUsuario = nombreUsuario;
             this.nombreCompleto = nombreCompleto;
             this.password = password;

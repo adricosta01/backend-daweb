@@ -45,7 +45,7 @@ namespace Usuarios.Servicio
                     throw new Exception("El codigo de activación o el usuario es erroneo.");
                 }
 
-                Usuario usuario = new Usuario(usuarioDTO.nombreUsuario, usuarioDTO.nombreCompleto, usuarioDTO.password, usuarioDTO.rol);
+                Usuario usuario = new Usuario(usuarioDTO.Id, usuarioDTO.nombreUsuario, usuarioDTO.nombreCompleto, usuarioDTO.password, usuarioDTO.rol);
                 usuarioDTO.Id = repositorioUsuarios.Add(usuario);
             }
             else{

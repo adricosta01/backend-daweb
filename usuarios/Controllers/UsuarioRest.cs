@@ -18,7 +18,7 @@ namespace Usuarios.Controllers{
             this._servicio = servicio;
         }
 
-        [HttpGet]
+        [HttpGet("getUsuarios")]
         public ActionResult<List<Usuario>> Get() => _servicio.GetUsuarios();
 
         [HttpGet("{id}", Name ="GetUsuario")]
@@ -31,14 +31,14 @@ namespace Usuarios.Controllers{
             return entidad;
         }
 
-        [HttpPost]
+        [HttpPost("altaUsuario")]
         public ActionResult<UsuarioDTO> AltaUsuario(UsuarioDTO usuarioDTO){
             _servicio.AltaUsuario(usuarioDTO);
             
             return CreatedAtRoute("GetUsuario", new {id = usuarioDTO.Id}, usuarioDTO);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("bajaUsuario/{id}")]
         public IActionResult BajaUsuario(string id)
         {
             var actividad = _servicio.Get(id);
@@ -52,7 +52,7 @@ namespace Usuarios.Controllers{
         }
 
         [HttpPost("codigo")]
-        public ActionResult<string> SolicitadCodigoActivacion([FromForm] string id)
+        public ActionResult<string>SolicitadCodigoActivacion([FromForm] string id)
         {
            string idCodigo = _servicio.SolicitadCodigoActivacion(id);
 
