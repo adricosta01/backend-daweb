@@ -20,6 +20,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.httpBasic().disable().csrf().disable()
 			.authorizeRequests()
+			.antMatchers("/auth/login").permitAll()
+			.antMatchers("/auth/register").permitAll()
+			.antMatchers("/estaciones/**").permitAll()
+			.antMatchers("/alquileres/**").permitAll()
+			.antMatchers("/usuarios/codigo").hasAuthority("gestor")
+			.antMatchers("/usuarios/bajaUsuario/**").hasAuthority("gestor")
+			.antMatchers("/usuarios/getUsuarios").hasAuthority("gestor")
 			.antMatchers("/auth/oauth2").authenticated()
 			.and()
 			.oauth2Login().successHandler(this.successHandler)

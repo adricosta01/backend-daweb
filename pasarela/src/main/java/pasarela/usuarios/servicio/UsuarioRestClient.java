@@ -15,7 +15,7 @@ public interface UsuarioRestClient {
 	@POST("api/usuarios/codigo")
 	Call<CodigoActivacionResponse> SolicitadCodigoActivacion(@Field("id") String id);
 	
-	@POST("api/usuarios")
+	@POST("api/usuarios/altaUsuario")
 	Call<UsuarioDTO> AltaUsuario(@Body UsuarioDTO usuarioDTO);
 
 	@FormUrlEncoded

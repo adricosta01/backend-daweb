@@ -32,7 +32,10 @@ import pasarela.usuarios.servicio.IServicioUsuarios;
 public class JwtRequestFilter extends OncePerRequestFilter {
 	
 	private static final String SECRET_KEY = "secreto";
-	private static final List<String> ALLOWED_URLS = new LinkedList<>(Arrays.asList( "/auth/login", "/swagger-ui.html","/swagger-ui","/v3/api-docs","/swagger-resources","/webjars","/estaciones/.*","/estaciones/.*/bicicletas/.*/estacionar"));
+	private static final List<String> ALLOWED_URLS = new LinkedList<>(Arrays.asList("/estaciones/**",
+			"/alquileres/**", "/authRegister" ,"/auth/oauth2", "/auth/login", 
+			"/swagger-ui.html","/swagger-ui","/v3/api-docs","/swagger-resources",
+			"/webjars", "/auth/register"));
 	
 	IServicioUsuarios servicioUsuario;
 	
@@ -44,28 +47,28 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// Comprueba que la petición lleve el token JWT y lo valida ...
 		String authorization = request.getHeader("Authorization");
-		
 		if (ALLOWED_URLS.stream().anyMatch(url -> request.getRequestURI().startsWith(url))) {
-			if(request.getRequestURI().startsWith("/auth/login")) {
-				String idCodigo = servicioUsuario.SolicitadCodigoActivacion(request.getParameter("id"));
-				servicioUsuario.AltaUsuario(new UsuarioDTO(request.getParameter("id"), request.getParameter("nombre"),request.getParameter("nombreCompleto"), request.getParameter("password"), "cliente", null, idCodigo));
-				Map<String, Object> claims = servicioUsuario.VerificarCredenciales(request.getParameter("nombre"), request.getParameter("password"));
-				
-				Date caducidad = Date.from(Instant.now().plusSeconds(3600));
-				String token = Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS256, SECRET_KEY)
-						.setExpiration(caducidad).compact();
-				
-				response.getWriter().append(token);
-				return;
-			}
+//			if(request.getRequestURI().startsWith("/auth/register")) {
+//				System.out.println(request.getParameter("id"));
+//				String idCodigo = servicioUsuario.SolicitadCodigoActivacion(request.getParameter("id"));
+//				servicioUsuario.AltaUsuario(new UsuarioDTO(request.getParameter("id"), request.getParameter("nombre"),request.getParameter("nombreCompleto"), request.getParameter("password"), "cliente", null, idCodigo));
+//				Map<String, Object> claims = servicioUsuario.VerificarCredenciales(request.getParameter("nombre"), request.getParameter("password"));
+//				
+//				Date caducidad = Date.from(Instant.now().plusSeconds(3600));
+//				String token = Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+//						.setExpiration(caducidad).compact();
+//				
+//				response.getWriter().append(token);
+//				return;
+//			}
 	        chain.doFilter(request, response);
 	        return;
 	    }
 		
-		if(request.getRequestURI().startsWith("/auth/oauth2")){
-			chain.doFilter(request, response);
-			return;
-		}
+//		if(request.getRequestURI().startsWith("/auth/oauth2")){
+//			chain.doFilter(request, response);
+//			return;
+//		}
 		if (authorization == null || !authorization.startsWith("Bearer ")) {
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "No se ha encontrado el token o no es correcto.");
 			return;

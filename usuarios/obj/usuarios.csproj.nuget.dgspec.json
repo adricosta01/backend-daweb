@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "d:\\ArSo\\entregable2\\citybike\\usuarios\\usuarios.csproj": {}
+    "c:\\Users\\Usuario\\git\\backend-daweb\\usuarios\\usuarios.csproj": {}
   },
   "projects": {
-    "d:\\ArSo\\entregable2\\citybike\\usuarios\\usuarios.csproj": {
+    "c:\\Users\\Usuario\\git\\backend-daweb\\usuarios\\usuarios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\ArSo\\entregable2\\citybike\\usuarios\\usuarios.csproj",
+        "projectUniqueName": "c:\\Users\\Usuario\\git\\backend-daweb\\usuarios\\usuarios.csproj",
         "projectName": "usuarios",
-        "projectPath": "d:\\ArSo\\entregable2\\citybike\\usuarios\\usuarios.csproj",
-        "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "d:\\ArSo\\entregable2\\citybike\\usuarios\\obj\\",
+        "projectPath": "c:\\Users\\Usuario\\git\\backend-daweb\\usuarios\\usuarios.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Usuario\\git\\backend-daweb\\usuarios\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.421\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
         }
       }
     }

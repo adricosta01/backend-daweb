@@ -11,7 +11,7 @@ namespace Codigos.Repositorio{
         private readonly IMongoCollection<Codigo> codigos;
 
         public RepositorioCodigoMongoDB(){
-            var database = new MongoClient("mongodb+srv://federico:arso@cluster0.lackox9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+            var database = new MongoClient("mongodb+srv://adrianhernandezcosta01:arso@cluster0.zllxg5q.mongodb.net/arso?retryWrites=true&w=majority&appName=Cluster0")
             .GetDatabase("arso");
             codigos = database.GetCollection<Codigo>("codigo.net");
         }
